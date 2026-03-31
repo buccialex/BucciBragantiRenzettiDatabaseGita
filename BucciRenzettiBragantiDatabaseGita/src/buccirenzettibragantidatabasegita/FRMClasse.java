@@ -17,6 +17,17 @@ public class FRMClasse extends javax.swing.JFrame {
      */
     public FRMClasse() {
         initComponents();
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
@@ -52,7 +63,6 @@ public class FRMClasse extends javax.swing.JFrame {
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("Creazione Gita");
         jFrame1.setMinimumSize(new java.awt.Dimension(578, 369));
-        jFrame1.setPreferredSize(new java.awt.Dimension(578, 369));
         jFrame1.getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("ID gita");
@@ -117,28 +127,30 @@ public class FRMClasse extends javax.swing.JFrame {
         jFrame1.getContentPane().add(jButton1, gridBagConstraints);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(578, 369));
+        setPreferredSize(new java.awt.Dimension(578, 369));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jLabel5.setText("ID gita");
+        jLabel5.setText("ID classe");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         getContentPane().add(jLabel5, gridBagConstraints);
 
-        jLabel6.setText("Destinazione");
+        jLabel6.setText("Anno");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         getContentPane().add(jLabel6, gridBagConstraints);
 
-        jLabel7.setText("Durata");
+        jLabel7.setText("Sezione");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         getContentPane().add(jLabel7, gridBagConstraints);
 
-        jLabel8.setText("Prezzo");
+        jLabel8.setText("Indirizzo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -172,7 +184,7 @@ public class FRMClasse extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
         getContentPane().add(jTextField8, gridBagConstraints);
 
-        jButton2.setText("Crea Gita");
+        jButton2.setText("Crea Classe");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -187,22 +199,7 @@ public class FRMClasse extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FRMClasse().setVisible(true));
