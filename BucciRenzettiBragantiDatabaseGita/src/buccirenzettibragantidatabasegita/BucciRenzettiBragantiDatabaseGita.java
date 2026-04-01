@@ -15,10 +15,11 @@ public class BucciRenzettiBragantiDatabaseGita {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        
-             FRMGita f = new FRMGita();
-        f.setVisible(true);
+    public static void main(String[] args) throws ClassNotFoundException {
+        GestioneDataBase g=new GestioneDataBase();
+        g.creaTabelle();
+             //FRMGita f = new FRMGita();
+        //f.setVisible(true);
     }
 }
    
