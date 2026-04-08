@@ -58,10 +58,11 @@ public class FRMClasse extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnCreaClasse = new javax.swing.JButton();
+        btnGita = new javax.swing.JButton();
+        btnAlunno = new javax.swing.JButton();
+        btnTab = new javax.swing.JButton();
+        btnPartecipazione = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("Creazione Gita");
@@ -138,94 +139,160 @@ public class FRMClasse extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         getContentPane().add(jLabel5, gridBagConstraints);
 
         jLabel6.setText("Anno");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 7, 2, 7);
         getContentPane().add(jLabel6, gridBagConstraints);
 
         jLabel7.setText("Sezione");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         getContentPane().add(jLabel7, gridBagConstraints);
 
         jLabel8.setText("Indirizzo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         getContentPane().add(jLabel8, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 7);
         getContentPane().add(jTextField5, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 7);
         getContentPane().add(jTextField6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 7);
         getContentPane().add(jTextField7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 7);
         getContentPane().add(jTextField8, gridBagConstraints);
 
-        jButton2.setText("Crea Classe");
+        btnCreaClasse.setText("Crea Classe");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(jButton2, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnCreaClasse, gridBagConstraints);
 
-        jButton3.setText("Passa a Gita");
+        btnGita.setText("Passa a Gita");
+        btnGita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGitaActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
-        getContentPane().add(jButton3, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnGita, gridBagConstraints);
 
-        jButton4.setText("Passa a Alunno");
+        btnAlunno.setText("Passa a Alunno");
+        btnAlunno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlunnoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
-        getContentPane().add(jButton4, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnAlunno, gridBagConstraints);
 
-        jButton5.setText("Visualizza tabella");
+        btnTab.setText("Visualizza tabella");
+        btnTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTabActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(jButton5, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnTab, gridBagConstraints);
+
+        btnPartecipazione.setText("Passa a Partecipazione");
+        btnPartecipazione.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPartecipazioneActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnPartecipazione, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGitaActionPerformed
+        FRMGita f = new FRMGita();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_btnGitaActionPerformed
+
+    private void btnAlunnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlunnoActionPerformed
+        FRMAlunno f = new FRMAlunno();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_btnAlunnoActionPerformed
+
+    private void btnPartecipazioneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartecipazioneActionPerformed
+        FRMPartecipazione f = new FRMPartecipazione();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_btnPartecipazioneActionPerformed
+
+    private void btnTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabActionPerformed
+        FRMTabella f = new FRMTabella();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+    }//GEN-LAST:event_btnTabActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlunno;
+    private javax.swing.JButton btnCreaClasse;
+    private javax.swing.JButton btnGita;
+    private javax.swing.JButton btnPartecipazione;
+    private javax.swing.JButton btnTab;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

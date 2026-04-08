@@ -17,6 +17,16 @@ public class FRMPartecipazione extends javax.swing.JFrame {
      */
     public FRMPartecipazione() {
         initComponents();
+         try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -35,89 +45,160 @@ public class FRMPartecipazione extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnCreaPartecipazione = new javax.swing.JButton();
+        btnGita = new javax.swing.JButton();
+        btnAlunno = new javax.swing.JButton();
+        btnClasse = new javax.swing.JButton();
+        btnTab = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Crea Partecipazioni");
+        setMinimumSize(new java.awt.Dimension(578, 369));
+        setPreferredSize(new java.awt.Dimension(578, 369));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("ID partecipazione");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         getContentPane().add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("ID alunno");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 7, 2, 7);
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jLabel3.setText("ID gita");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         getContentPane().add(jLabel3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 7);
         getContentPane().add(jTextField1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 7);
         getContentPane().add(jTextField2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
-        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 7);
         getContentPane().add(jTextField3, gridBagConstraints);
 
-        jButton1.setText("Crea Partecipazione");
+        btnCreaPartecipazione.setText("Crea Partecipazione");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(jButton1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnCreaPartecipazione, gridBagConstraints);
+
+        btnGita.setText("Passa a Gita");
+        btnGita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGitaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnGita, gridBagConstraints);
+
+        btnAlunno.setText("Passa a Alunno");
+        btnAlunno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlunnoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnAlunno, gridBagConstraints);
+
+        btnClasse.setText("Passa a classe");
+        btnClasse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClasseActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnClasse, gridBagConstraints);
+
+        btnTab.setText("Mostra tabella");
+        btnTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTabActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+        getContentPane().add(btnTab, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabActionPerformed
+        FRMTabella f = new FRMTabella();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+    }//GEN-LAST:event_btnTabActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FRMPartecipazione().setVisible(true));
-    }
+    private void btnGitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGitaActionPerformed
+        FRMGita f = new FRMGita();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_btnGitaActionPerformed
+
+    private void btnAlunnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlunnoActionPerformed
+        FRMAlunno f = new FRMAlunno();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_btnAlunnoActionPerformed
+
+    private void btnClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasseActionPerformed
+        FRMClasse f = new FRMClasse();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_btnClasseActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAlunno;
+    private javax.swing.JButton btnClasse;
+    private javax.swing.JButton btnCreaPartecipazione;
+    private javax.swing.JButton btnGita;
+    private javax.swing.JButton btnTab;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
