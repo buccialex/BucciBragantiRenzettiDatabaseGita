@@ -19,7 +19,7 @@ public class FRMGita extends javax.swing.JFrame {
         initComponents();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -27,6 +27,7 @@ public class FRMGita extends javax.swing.JFrame {
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -47,15 +48,18 @@ public class FRMGita extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnCreaGita = new javax.swing.JButton();
+        btnFrmClasse = new javax.swing.JButton();
+        btnFrmAlunno = new javax.swing.JButton();
+        btnTab = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Creazione Gita");
         setMinimumSize(new java.awt.Dimension(578, 369));
         setPreferredSize(new java.awt.Dimension(578, 369));
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 5, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         jLabel1.setText("ID gita");
@@ -111,21 +115,80 @@ public class FRMGita extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
         getContentPane().add(jTextField4, gridBagConstraints);
 
-        jButton1.setText("Crea Gita");
+        btnCreaGita.setText("Crea Gita");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(jButton1, gridBagConstraints);
+        getContentPane().add(btnCreaGita, gridBagConstraints);
+
+        btnFrmClasse.setText("Passa a Classe");
+        btnFrmClasse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFrmClasseActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        getContentPane().add(btnFrmClasse, gridBagConstraints);
+
+        btnFrmAlunno.setText("Passa a Alunno");
+        btnFrmAlunno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFrmAlunnoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        getContentPane().add(btnFrmAlunno, gridBagConstraints);
+
+        btnTab.setText("Visualizza Tabella");
+        btnTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTabActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(btnTab, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnFrmClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrmClasseActionPerformed
+        FRMClasse f = new FRMClasse();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_btnFrmClasseActionPerformed
+
+    private void btnFrmAlunnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrmAlunnoActionPerformed
+        FRMAlunno f = new FRMAlunno();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_btnFrmAlunnoActionPerformed
+
+    private void btnTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabActionPerformed
+        FRMTabella f = new FRMTabella();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        
+    }//GEN-LAST:event_btnTabActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCreaGita;
+    private javax.swing.JButton btnFrmAlunno;
+    private javax.swing.JButton btnFrmClasse;
+    private javax.swing.JButton btnTab;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

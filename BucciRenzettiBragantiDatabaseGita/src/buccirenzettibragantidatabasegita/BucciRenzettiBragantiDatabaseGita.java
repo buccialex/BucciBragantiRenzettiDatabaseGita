@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package buccirenzettibragantidatabasegita;
-import java.sql.*;
 
 
 /**
@@ -15,11 +14,11 @@ public class BucciRenzettiBragantiDatabaseGita {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args){
         GestioneDataBase g=new GestioneDataBase();
         g.creaTabelle();
-             //FRMGita f = new FRMGita();
-        //f.setVisible(true);
+        FRMGita f = new FRMGita();
+        f.setVisible(true);
     }
 }
    

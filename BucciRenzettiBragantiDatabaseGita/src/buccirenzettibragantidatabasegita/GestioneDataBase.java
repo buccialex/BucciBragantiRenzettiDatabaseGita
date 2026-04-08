@@ -20,7 +20,7 @@ public class GestioneDataBase {
 
     }
 
-    public void creaTabelle() throws ClassNotFoundException {
+    public void creaTabelle()  {
     try {
         connection = null;
         statement = null;
