@@ -52,13 +52,14 @@ public class FRMGita extends javax.swing.JFrame {
         btnFrmClasse = new javax.swing.JButton();
         btnFrmAlunno = new javax.swing.JButton();
         btnTab = new javax.swing.JButton();
+        btnPartecipazione = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Creazione Gita");
         setMinimumSize(new java.awt.Dimension(578, 369));
         setPreferredSize(new java.awt.Dimension(578, 369));
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 5, 0, 5, 0};
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
         layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
@@ -89,6 +90,7 @@ public class FRMGita extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
@@ -96,6 +98,7 @@ public class FRMGita extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
@@ -103,6 +106,7 @@ public class FRMGita extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
@@ -110,16 +114,22 @@ public class FRMGita extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 55;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 5);
         getContentPane().add(jTextField4, gridBagConstraints);
 
         btnCreaGita.setText("Crea Gita");
+        btnCreaGita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreaGitaActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(btnCreaGita, gridBagConstraints);
 
@@ -154,9 +164,20 @@ public class FRMGita extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(btnTab, gridBagConstraints);
+
+        btnPartecipazione.setText("Passa a Partecipazione");
+        btnPartecipazione.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPartecipazioneActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 10;
+        getContentPane().add(btnPartecipazione, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -182,12 +203,24 @@ public class FRMGita extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnTabActionPerformed
 
+    private void btnCreaGitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreaGitaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCreaGitaActionPerformed
+
+    private void btnPartecipazioneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartecipazioneActionPerformed
+        FRMPartecipazione f = new FRMPartecipazione();
+        f.setVisible(true);
+        f.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_btnPartecipazioneActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreaGita;
     private javax.swing.JButton btnFrmAlunno;
     private javax.swing.JButton btnFrmClasse;
+    private javax.swing.JButton btnPartecipazione;
     private javax.swing.JButton btnTab;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
