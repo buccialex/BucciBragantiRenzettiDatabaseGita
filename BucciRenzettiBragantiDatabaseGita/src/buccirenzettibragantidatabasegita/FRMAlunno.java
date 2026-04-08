@@ -4,6 +4,8 @@
  */
 package buccirenzettibragantidatabasegita;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author bucci.alex
@@ -109,6 +111,11 @@ public class FRMAlunno extends javax.swing.JFrame {
         getContentPane().add(jTextField8, gridBagConstraints);
 
         jButton2.setText("Crea Alunno");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -139,6 +146,10 @@ public class FRMAlunno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -163,4 +174,33 @@ public class FRMAlunno extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
+    private GestioneDataBase db = new GestioneDataBase();
+    
+    private void aggiornaTabella() {
+        try {
+            db.creaTabelle(); 
+            ResultSet rs = db.ottieniAlunni(); 
+            if (rs == null) {
+                System.out.println("Nessun dato trovato o errore nella query.");
+                return;
+            }
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0); 
+            while (rs.next()) {
+                Object[] riga = new Object[4];
+                
+                // Prendiamo i dati usando i nomi esatti delle colonne SQL
+                riga[0] = rs.getInt("alu_id");         
+                riga[1] = rs.getString("alu_nome");    
+                riga[2] = rs.getString("alu_cognome"); 
+                riga[3] = rs.getInt("alu_cla_id");     
+                
+                // Aggiungiamo la riga "disegnandola" nella JTable
+                model.addRow(riga);
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("Errore durante l'aggiornamento della tabella: " + e.getMessage());
+        }
+    }
 }
