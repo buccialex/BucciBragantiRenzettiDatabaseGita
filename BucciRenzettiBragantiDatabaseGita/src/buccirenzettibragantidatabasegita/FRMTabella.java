@@ -4,6 +4,10 @@
  */
 package buccirenzettibragantidatabasegita;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author bucci.alex
@@ -11,11 +15,18 @@ package buccirenzettibragantidatabasegita;
 public class FRMTabella extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FRMTabella.class.getName());
+    
+    private String tabella; // Tipo di tabella da visualizzare: "alunni", "classi", "gite", "partecipazione"
 
     /**
      * Creates new form FRMTabella
      */
     public FRMTabella() {
+        this("alunni"); // Default a alunni
+    }
+    
+    public FRMTabella(String tabella) {
+        this.tabella = tabella;
         initComponents();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -28,6 +39,7 @@ public class FRMTabella extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        aggiornaTabella(); // Popola la tabella al caricamento del form
     }
 
     /**
@@ -63,7 +75,56 @@ public class FRMTabella extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private GestioneDataBase db = new GestioneDataBase();
     
+    private void aggiornaTabella() {
+        try {
+            db.creaTabelle(); 
+            ResultSet rs = null;
+            String[] colonne = null;
+            switch (tabella.toLowerCase()) {
+                case "alunni":
+                    rs = db.ottieniAlunni();
+                    colonne = new String[]{"ID", "Nome", "Cognome", "Classe ID"};
+                    break;
+                case "classi":
+                    rs = db.ottieniClassi();
+                    colonne = new String[]{"ID", "Anno", "Sezione"};
+                    break;
+                case "gite":
+                    rs = db.ottieniGite();
+                    colonne = new String[]{"ID", "Destinazione", "Durata", "Prezzo"};
+                    break;
+                case "partecipazione":
+                    rs = db.ottieniPartecipazione();
+                    colonne = new String[]{"ID", "Alunno ID", "Gita ID"};
+                    break;
+                default:
+                    System.out.println("Tipo tabella non riconosciuto: " + tabella);
+                    return;
+            }
+            if (rs == null) {
+                System.out.println("Nessun dato trovato o errore nella query.");
+                return;
+            }
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0); 
+            // Imposta i nomi delle colonne
+            model.setColumnIdentifiers(colonne);
+            int numColonne = colonne.length;
+            while (rs.next()) {
+                Object[] riga = new Object[numColonne];
+                for (int i = 0; i < numColonne; i++) {
+                    riga[i] = rs.getObject(i + 1); // Le colonne SQL sono 1-based
+                }
+                // Aggiungiamo la riga nella JTable
+                model.addRow(riga);
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("Errore durante l'aggiornamento della tabella: " + e.getMessage());
+        }
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
